@@ -20,8 +20,8 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "your-github-username",
-        "repo": "your-repo-name"
+        "owner": "ziauddinsarker",
+        "repo": "Salattime"
       }
     ],
     "files": [
