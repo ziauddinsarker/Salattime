@@ -1,8 +1,9 @@
-const { app,Notification, BrowserWindow, Tray, Menu, autoUpdater, dialog  } = require('electron');
+const { app, Notification, BrowserWindow, Tray, Menu, dialog } = require('electron');
 const path = require('path');
 
-// Setup autoUpdater
+// Setup autoUpdater from electron-updater
 const { autoUpdater } = require('electron-updater');
+
 // Configure logging for auto-updater
 autoUpdater.logger = require("electron-log");
 autoUpdater.logger.transports.file.level = "info";
@@ -54,14 +55,15 @@ app.on('ready', () => {
         mainWindow.show();
     });
 
-
-
     // Auto-start the application at boot (Windows)
     if (process.platform === 'win32') {
         app.setLoginItemSettings({
             openAtLogin: true
         });
     }
+
+    // Check for updates once the app is ready
+    autoUpdater.checkForUpdatesAndNotify();
 });
 
 // Auto-update logic

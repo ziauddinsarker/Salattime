@@ -1,19 +1,24 @@
 {
   "name": "electron-salat-times",
-  "version": "1.0.0",
+  "version": "v1.0.0",
   "description": "Application Salat Times and Currency Conversion",
   "main": "main.js",
   "scripts": {
+    "test": "echo \"Error: no test specified \" && exit 1",
+    "watch": "nodemon --exec electron",
     "start": "electron .",
     "dist": "electron-builder"
   },
   "devDependencies": {
     "electron": "latest",
-    "electron-builder": "latest"
+    "electron-builder": "^25.0.5"
   },
   "build": {
     "appId": "com.technbit.salattimes",
     "productName": "Salat Times App",
+    "win": {
+      "target": "nsis"
+    },
     "directories": {
       "output": "dist"
     },
@@ -21,9 +26,13 @@
       {
         "provider": "github",
         "owner": "ziauddinsarker",
-        "repo": "Salattime"
+        "repo": "Salattime",
+        "releaseType": "release"
       }
     ],
+    "extraMetadata": {
+      "version": "1.0.0"
+    },
     "files": [
       "assets/**/*",
       "index.html",
@@ -47,6 +56,7 @@
     }
   },
   "dependencies": {
+    "electron-log": "^5.2.0",
     "electron-updater": "^6.3.4"
   }
 }
